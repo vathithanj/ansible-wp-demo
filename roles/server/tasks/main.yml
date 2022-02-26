@@ -1,0 +1,23 @@
+---
+# tasks file for server
+- name: Update apt cache
+  apt: 
+    update_cache: yes 
+  become: yes
+
+- name: Install required software for wordpress
+  apt: 
+    update_cache: yes
+    name: "{{ item }}"
+    state: present
+    force_apt_get: yes
+  become: yes
+  with_items:
+    - apache2
+    - mysql-server
+    - python3-pip
+    - python3-pymysql
+    - php
+    - php-mysql
+    - libapache2-mod-php  
+

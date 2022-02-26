@@ -1,0 +1,17 @@
+---
+# tasks file for php
+- name: Install php extensions
+  apt: 
+    name: "{{ item }}" 
+    state: present
+  become: yes
+  with_items:
+    - php-gd
+    - php-ssh2
+    - php-curl
+    - php-mbstring
+    - php-xml
+    - php-xmlrpc
+    - php-soap
+    - php-intl
+    - php-zip
